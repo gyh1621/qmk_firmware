@@ -18,14 +18,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [2] = LAYOUT_60_tsangan_hhkb(
         _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  _______,
         _______, RGB_TOG, _______, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, RGB_MOD, _______, _______, _______, QK_BOOT,
-        _______, _______, _______, _______, _______, _______, _______, _______, RGB_SPI, RGB_SPD, _______, _______,          _______,
+        _______, AC_TOGG, _______, _______, _______, _______, _______, _______, RGB_SPI, RGB_SPD, _______, _______,          _______,
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______,                            _______,                                     _______, _______, _______
     )
 };
 
-// Ctrl + Backspace = Delete
-const key_override_t enter_key_override = ko_make_basic(MOD_MASK_CTRL, KC_LGUI, KC_ENT);
+// Ctrl + ; = Enter
+const key_override_t enter_key_override = ko_make_basic(MOD_MASK_CTRL, KC_SEMICOLON, KC_ENT);
+
+// Ctrl + b = Backspace
+const key_override_t backspace_key_override = ko_make_basic(MOD_MASK_CTRL, KC_B, KC_BACKSPACE);
 
 // Ctrl + h = left_arrow
 const key_override_t ctrl_h_key_override = ko_make_basic(MOD_MASK_CTRL, KC_H, KC_LEFT);
@@ -39,6 +42,7 @@ const key_override_t ctrl_k_key_override = ko_make_basic(MOD_MASK_CTRL, KC_K, KC
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
 	&enter_key_override,
+	&backspace_key_override,
 	&ctrl_h_key_override,
 	&ctrl_l_key_override,
 	&ctrl_j_key_override,

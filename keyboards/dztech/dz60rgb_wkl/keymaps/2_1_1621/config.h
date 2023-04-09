@@ -1,0 +1,3 @@
+#ifndef NO_ACTION_TAPPING
+#define NO_ACTION_TAPPING
+#endif // !NO_ACTION_TAPPING
